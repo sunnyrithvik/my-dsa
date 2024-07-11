@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self, data, link=None):
+    def __init__(self, data, next=None):
         self.data = data
-        self.link = link
+        self.next = next
 
 
 class LinkedList:
@@ -11,7 +11,7 @@ class LinkedList:
     def insert_at_begin(self, data):
         node = Node(data)
         if self.head != None:
-            node.link = self.head
+            node.next = self.head
             self.head = node
         else:
             self.head = node
@@ -21,9 +21,9 @@ class LinkedList:
         node = Node(data)
         if self.head != None:
             current = self.head
-            while current.link != None:
-                current = current.link
-            current.link = node
+            while current.next != None:
+                current = current.next
+            current.next = node
         else:
             self.head = node
         print("Inserted element " + str(data) + " at the end")
@@ -34,18 +34,18 @@ class LinkedList:
             return
         if self.head.data == ele:
             temp = self.head
-            self.head = temp.link
+            self.head = temp.next
             temp = None
             return
         current = self.head
-        while current.link != None:
-            if current.link.data == ele:
-                temp = current.link
-                current.link = temp.link
+        while current.next != None:
+            if current.next.data == ele:
+                temp = current.next
+                current.next = temp.next
                 temp = None
                 print("Deleted Element " + str(ele))
                 return
-            current = current.link
+            current = current.next
         print("Element is not found in the List")
 
     def search(self, ele):
@@ -57,7 +57,7 @@ class LinkedList:
             if current.data == ele:
                 print("Element " + str(ele) + " found in the list")
                 return
-            current = current.link
+            current = current.next
         print("Element " + str(ele) + " is not found in the List")
 
     def display(self):
@@ -69,7 +69,7 @@ class LinkedList:
         current = self.head
         while current != None:
             print(current.data)
-            current = current.link
+            current = current.next
         print("----------")
 
 
