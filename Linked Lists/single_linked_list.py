@@ -15,6 +15,7 @@ class LinkedList:
             self.head = node
         else:
             self.head = node
+        print("Inserted element " + str(data) + " at the beginning")
 
     def insert_at_end(self, data):
         node = Node(data)
@@ -25,6 +26,7 @@ class LinkedList:
             current.link = node
         else:
             self.head = node
+        print("Inserted element " + str(data) + " at the end")
 
     def delete_node(self, ele):
         if self.head == None:
@@ -41,6 +43,7 @@ class LinkedList:
                 temp = current.link
                 current.link = temp.link
                 temp = None
+                print("Deleted Element " + str(ele))
                 return
             current = current.link
         print("Element is not found in the List")
@@ -52,11 +55,14 @@ class LinkedList:
         current = self.head
         while current != None:
             if current.data == ele:
-                print("Element found in the list")
+                print("Element " + str(ele) + " found in the list")
                 return
             current = current.link
+        print("Element " + str(ele) + " is not found in the List")
 
     def display(self):
+        print("----------")
+        print("List:")
         if self.head == None:
             print("List Empty")
             return
@@ -64,7 +70,7 @@ class LinkedList:
         while current != None:
             print(current.data)
             current = current.link
-        print("**********")
+        print("----------")
 
 
 LL = LinkedList()
@@ -79,3 +85,4 @@ LL.delete_node(13)
 LL.delete_node(3)
 LL.display()
 LL.search(7)
+LL.search(17)
